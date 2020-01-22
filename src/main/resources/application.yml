@@ -1,0 +1,24 @@
+server:
+  port: 9099
+  
+spring:
+  h2:
+    console:
+      enabled: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-add-partition: true
+      bindings:
+        item-queue:
+          destination: item-queue
+          group: group1
+        item-events:
+          destination: item-events
+          producer:
+            partition-count: 2
+com:
+  training:
+      mysql:
+        enabled: true
